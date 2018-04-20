@@ -47,13 +47,27 @@ span#verdechiaro{
 <h1><a id="COMUNICAZIONE_SERIALE_0"></a>COMUNICAZIONE_SERIALE</h1>
 <hr>
 <p><img src="https://i.imgur.com/9m5oRKe.png" alt=""></p>
+
+<h4> Autori </h4>
+<ul>
+<li> Fraccari Luca (<a href="https://github.com/Luca5912"> Github </a>)    </li>
+<li> Lain Lorenzo                                                          </li>
+<li> Morini Martino                                                        </li>
+<li> Rossini Andrea                                                        </li>
+<li> Vecchiato Alessandro                                                  </li>
+<li> Zenaro Stefano (<a href="https://github.com/mario33881"> Github </a>) </li>
+</ul>
+
 <h4><a id="Github_httpsiimgurcomej4EVF6png_3"></a>Github <img src="https://i.imgur.com/ej4EVF6.png" alt=""></h4>
 <p><a href="https://github.com/mario33881/ITA_Arduino_Serial_communication">Visualizza questo file su github</a></p>
 <h2><a id="Descrizione_httpsiimgurcomwMdaLI0png_5"></a>Descrizione <img src="https://i.imgur.com/wMdaLI0.png" alt=""></h2>
 <hr>
+
 <p>La <strong>comunicazione seriale</strong> e’ svolta attraverso <strong>due sketch</strong>:</p>
+
 <pre><code>trasmettitore.ino
 </code></pre>
+
 <ol>
 <li>
 <p>Riceve all’<strong>ingresso A0</strong>, pin analogico, la tensione prelevata tra il<br>
@@ -61,6 +75,7 @@ partitore di tensione ottenuto mettendo in <strong>serie un resistore e una foto
 <blockquote>
 <p><strong>Nota:</strong> la <strong>tensione</strong> e’ vista da arduino come un <strong>valore compreso tra 0 e 1023</strong></p>
 </blockquote>
+
 <pre><code class="language-c++"><span id="azzurro">int</span> photoPin = A0;
 <span class="" id="azzurro">int</span> val = <span class="">0</span>;
 [...]
@@ -70,9 +85,11 @@ partitore di tensione ottenuto mettendo in <strong>serie un resistore e una foto
     [...]
 }
 </code></pre>
+
 </li>
 <li>
 <p>In base ad una condizione, <strong>assegna a mex un determinato byte</strong>.</p>
+
 <pre><code class="language-c++"> <span id="azzurro">byte</span> mex;
  [...]
  <span class="hljs-function"><span class="" id="azzurro">void</span> <span class="" id="verdechiaro">loop</span><span class="hljs-params">()</span></span>{
@@ -82,8 +99,10 @@ partitore di tensione ottenuto mettendo in <strong>serie un resistore e una foto
      [...]
  }
 </code></pre>
+
 </li>
 <li>
+
 <p><strong>invia quel byte</strong> attraverso la comunicazione seriale (<strong>pin TX</strong>)</p>
 
 <pre><code class="language-c++"><span class="hljs-function"><span class="" id="azzurro">void</span> <span class="" id="verdechiaro">setup</span><span class="hljs-params">()</span></span>{
@@ -96,13 +115,16 @@ partitore di tensione ottenuto mettendo in <strong>serie un resistore e una foto
     [...]
 }
 </code></pre>
+
 </li>
 </ol>
 <pre><code>ricevitore.ino
 </code></pre>
 <ol>
 <li>
+
 <p><strong>Riceve sul pin RX il byte</strong> inviato dal trasmettitore</p>
+
 <pre><code class="language-c++"><span id="azzurro">byte</span> comando;
 [...]
 <span class="hljs-function"><span id="azzurro">void</span> <span class="" id="verdechiaro">loop</span><span class="hljs-params">()</span></span>{
@@ -116,6 +138,7 @@ partitore di tensione ottenuto mettendo in <strong>serie un resistore e una foto
 
 </code></pre>
 </li>
+
 <li>
 <p>Con una struttura di controllo (<strong>switch case</strong>) distinguiamo <strong>2 casi</strong> particolari:<br>
 a. Se il <strong>byte</strong> ricevuto e’ <strong>uguale a B000</strong>, il livello logico del <strong>pin “controlPin” e’ alto</strong><br>
@@ -149,6 +172,7 @@ b. Se il <strong>byte</strong> ricevuto e’ <strong>uguale a B001</strong>, il 
 </code></pre>
 </li>
 </ol>
+
 <h2><a id="Contenuto_archivio_httpsiimgurcomFWdiWIMpng_96"></a>Contenuto archivio <img src="https://i.imgur.com/FWdiWIM.png" alt=""></h2>
 <hr>
 <pre><code>comunicazione_seriale_01_01/
